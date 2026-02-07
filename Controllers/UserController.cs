@@ -8,9 +8,18 @@ namespace WebApplication1.Controllers
     public class UserController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        [Route("{id}/person/{nickname}")]
+        [ProducesResponseType(typeof(user), StatusCodes.Status200OK)] // metodo para qual status vou querer que fique
+        public IActionResult Get(int id, string nickname)
         {
-            return Ok("gabriel");
+            var response = new user
+            {
+                id = 1,
+                Age = 7,
+                name = "gabriel"
+            };
+
+            return Ok(response);
         }
     }
 }
