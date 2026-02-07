@@ -36,5 +36,12 @@ namespace WebApplication1.Controllers
             };
             return Created(string.Empty, response);
         }
+
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult Update([FromBody] RequestUpdateJson request)
+        {
+            return NoContent();
+        }
     }
 }
