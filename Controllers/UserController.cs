@@ -9,8 +9,8 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        [HttpGet]
-      ///  [Route("{id}/person/{nickname}")] // passando valores na rota
+        [HttpGet] // aqui recebo um get para buscar um usuario
+        ///  [Route("{id}/person/{nickname}")] // passando valores na rota
         [ProducesResponseType(typeof(user), StatusCodes.Status200OK)] // metodo para qual status vou querer que fique
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)] // para da uma status de bad request caso tenha algum erro
         public IActionResult GetByid([FromHeader] int id, [FromHeader] string? nickname) // vamos aceita valores null quando usar o ?
@@ -25,7 +25,7 @@ namespace WebApplication1.Controllers
             return Ok(response);
         }
 
-        [HttpPost]
+        [HttpPost] // aqui estamos usando o verbo post para criar um usuario
         [ProducesResponseType(typeof(RequestRegisterUserJson), StatusCodes.Status201Created)]
         public IActionResult Create([FromBody] RequestRegisterUserJson request)
         {
@@ -37,7 +37,7 @@ namespace WebApplication1.Controllers
             return Created(string.Empty, response);
         }
 
-        [HttpPut]
+        [HttpPut] // aqui estamos usando o verbo put para atualizar um usuario
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult Update([FromBody] RequestUpdateJson request)
         {
@@ -48,6 +48,25 @@ namespace WebApplication1.Controllers
         [HttpDelete] // aqui estamos usando o verbo delete para deletar um usuario
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult Delete()
+        {
+            return NoContent();
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(List<User>),StatusCodes.Status204NoContent)]
+        public IActionResult GetAll()
+        {
+            var response = new List<user>
+            {
+                new User { id = 1, Age = 7, name = "doppy" },
+                new User { id = 2, Age = 8, name = "gabriel" },
+            };
+            return Ok(response);
+        }
+
+        [HttpPut("change-password")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult ChangePassword([FromBody] RequestChancePasswordJson request)
         {
             return NoContent();
         }
