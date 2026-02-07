@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Comunication.Request;
+using WebApplication1.Comunication.Response;
 
 namespace WebApplication1.Controllers
 
@@ -17,10 +19,22 @@ namespace WebApplication1.Controllers
             {
                 id = 1,
                 Age = 7,
-                name = "gabriel"
+                name = "doppy"
             };
 
             return Ok(response);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(RequestRegisterUserJson), StatusCodes.Status201Created)]
+        public IActionResult Create([FromBody] RequestRegisterUserJson request)
+        {
+            var response = new RegisterUserResponseJson // aqui estamos criando um objeto de resposta para retornar o id e o nome do usuario criado
+            {
+                Id = 1,
+                Name = request.name,
+            };
+            return Created(string.Empty, response);
         }
     }
 }

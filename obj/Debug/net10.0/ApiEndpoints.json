@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "WebApplication1.Controllers.UserController",
-    "Method": "Get",
+    "Method": "GetByid",
     "RelativePath": "api/user",
     "HttpMethod": "GET",
     "IsController": true,
@@ -38,5 +38,21 @@
         "StatusCode": 400
       }
     ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.UserController",
+    "Method": "Create",
+    "RelativePath": "api/user",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "WebApplication1.Comunication.Request.RequestRegisterUserJson",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
