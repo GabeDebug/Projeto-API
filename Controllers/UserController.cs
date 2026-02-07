@@ -8,9 +8,10 @@ namespace WebApplication1.Controllers
     public class UserController : ControllerBase
     {
         [HttpGet]
-        [Route("{id}/person/{nickname}")]
+      ///  [Route("{id}/person/{nickname}")] // passando valores na rota
         [ProducesResponseType(typeof(user), StatusCodes.Status200OK)] // metodo para qual status vou querer que fique
-        public IActionResult Get(int id, string nickname)
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)] // para da uma status de bad request caso tenha algum erro
+        public IActionResult GetByid([FromHeader] int id, [FromHeader] string? nickname) // vamos aceita valores null quando usar o ?
         {
             var response = new user
             {
