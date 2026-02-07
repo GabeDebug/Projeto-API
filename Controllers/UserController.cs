@@ -41,6 +41,14 @@ namespace WebApplication1.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult Update([FromBody] RequestUpdateJson request)
         {
+            var debug = request;
+            return NoContent();
+        }
+
+        [HttpDelete] // aqui estamos usando o verbo delete para deletar um usuario
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult Delete()
+        {
             return NoContent();
         }
     }

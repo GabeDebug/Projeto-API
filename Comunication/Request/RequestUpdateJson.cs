@@ -1,6 +1,6 @@
 ﻿namespace WebApplication1.Comunication.Request
 {
-    public class RequestUpdateJson
+    public class RequestUpdateJson // para valor PUT
     {
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
