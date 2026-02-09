@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Entities;
 
 namespace WebApplication1.Controllers
 {
@@ -10,7 +11,9 @@ namespace WebApplication1.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult Get()
         {
-            return Ok(Author);
+            var laptop = new Laptop();
+            var model = laptop.GetModel();
+            return Ok(model);
         }
     }
 }
