@@ -105,8 +105,30 @@
   },
   {
     "ContainingType": "WebApplication1.Controllers.UserController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/user/change-password",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "WebApplication1.Controllers.RequestChancePasswordJson",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.UserController",
     "Method": "GetAll",
-    "RelativePath": "api/user",
+    "RelativePath": "api/user/get-all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -119,6 +141,22 @@
           "application/json",
           "text/json"
         ],
+        "StatusCode": 204
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.ValuesController",
+    "Method": "Get",
+    "RelativePath": "api/values/get-by-id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
         "StatusCode": 204
       }
     ]

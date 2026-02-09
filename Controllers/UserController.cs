@@ -7,7 +7,7 @@ namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : MyfirstAPiController1
     {
         [HttpGet] // aqui recebo um get para buscar um usuario
         ///  [Route("{id}/person/{nickname}")] // passando valores na rota
@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
             {
                 id = 1,
                 Age = 7,
-                name = "doppy"
+                name = "gabriel"
             };
 
             return Ok(response);
@@ -52,19 +52,19 @@ namespace WebApplication1.Controllers
             return NoContent();
         }
 
-        [HttpGet]
+        [HttpGet("get-all")]
         [ProducesResponseType(typeof(List<User>),StatusCodes.Status204NoContent)]
         public IActionResult GetAll()
         {
             var response = new List<user>
             {
-                new User { id = 1, Age = 7, name = "doppy" },
+                new User { id = 1, Age = 7, name = "gabriel1" },
                 new User { id = 2, Age = 8, name = "gabriel" },
             };
             return Ok(response);
         }
 
-        [HttpPut("change-password")]
+        [HttpPut("change-password")] // aqui estamos usando o verbo put para atualizar a senha do usuario, e passando a rota change-password para diferenciar do update normal
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult ChangePassword([FromBody] RequestChancePasswordJson request)
         {
